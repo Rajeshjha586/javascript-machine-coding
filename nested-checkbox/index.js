@@ -57,20 +57,30 @@ class NestedCheckBoxes {
     return ul;
   }
 
+  handleCheckboxChange(checkbox) {
+    let isChecked = checkbox.checked;
+
+    // Select all children and update their checked state
+    let childCheckboxes = checkbox
+      .closest("li")
+      ?.querySelectorAll("input[type='checkbox']");
+    if (childCheckboxes) {
+      childCheckboxes.forEach((child) => {
+        child.checked = isChecked;
+        child.indeterminate = false; // Reset indeterminate state
+      });
+    }
+
+    // Update parents recursively
+    this.updateParentCheckboxes(checkbox);
+  }
+
   addCheckboxesListeners() {
     document
       .querySelectorAll(`#${this.root} input[type='checkbox']`)
       .forEach((checkbox) => {
         checkbox.addEventListener("change", (event) => {
-          let childCheckBoxes = event.target
-            .closest("li")
-            .querySelectorAll("input[type='checkbox']");
-          childCheckBoxes.forEach((childCheckBox) => {
-            if (childCheckBox) {
-              childCheckBox.checked = event.target.checked;
-            }
-          });
-          this.updateParentCheckboxes(event.target);
+          this.handleCheckboxChange(event.target);
         });
       });
   }
@@ -80,11 +90,12 @@ class NestedCheckBoxes {
     if (!parentli) return;
 
     let parentCheckbox = parentli.querySelector("input[type='checkbox']");
+    if (!parentCheckbox) return; // Safety check
 
     // Get only direct child checkboxes, not deeply nested ones
     let siblingCheckBoxes = Array.from(parentli.children[1]?.children || [])
       .map((li) => li.querySelector("input[type='checkbox']"))
-      .filter(Boolean); // Ensure no null values
+      .filter(Boolean); // Remove null values
 
     let checkedCount = siblingCheckBoxes.filter((cb) => cb.checked).length;
     let hasIndeterminateChild = siblingCheckBoxes.some(
@@ -93,12 +104,13 @@ class NestedCheckBoxes {
 
     // Parent should be checked only if all children are checked
     parentCheckbox.checked = checkedCount === siblingCheckBoxes.length;
-    // Parent should be indeterminate if at least one child is indeterminate OR some children are checked
+
+    // Parent should be indeterminate if some children are checked OR any child is indeterminate
     parentCheckbox.indeterminate =
       hasIndeterminateChild ||
       (checkedCount > 0 && checkedCount < siblingCheckBoxes.length);
 
-    // Recursively update the grandparent
+    // Recursively update the grandparent (no condition check needed)
     this.updateParentCheckboxes(parentCheckbox);
   }
 
