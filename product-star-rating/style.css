@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+#rating-container {
+  width: 320px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#stars {
+  margin: 10px 0;
+}
+
+#stars button {
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s, transform 0.2s;
+}
+
+#stars button:hover {
+  transform: scale(1.2);
+}
+
+#stars button.selected {
+  color: gold;
+}
+
+.rating-item {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 4px;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.rating-item span {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.progress-bar span {
+  position: absolute;
+  right: 10px;
+  top: -22px;
+  font-size: 12px;
+  color: #555;
+}
+
+.vote-count {
+  font-size: 12px;
+  color: #666;
+  float: right;
+  margin-right: 5px;
+}

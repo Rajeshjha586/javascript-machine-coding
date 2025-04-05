@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Rating</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="rating-container">
+      <h3>Rate this product</h3>
+      <div id="stars">
+        <button class="star" data-rating="1">☆</button>
+        <button class="star" data-rating="2">☆</button>
+        <button class="star" data-rating="3">☆</button>
+        <button class="star" data-rating="4">☆</button>
+        <button class="star" data-rating="5">☆</button>
+      </div>
+
+      <h3>Ratings:</h3>
+      <div id="ratings-list">
+        <div class="rating-item" id="rating-1">
+          <span>1 Star</span>
+          <span class="vote-count" id="count-1">(0 votes)</span>
+          <div class="progress-bar" id="progress-1">
+            <div class="progress-fill" id="fill-1"></div>
+            <span id="percentage-1">0%</span>
+          </div>
+        </div>
+        <div class="rating-item" id="rating-2">
+          <span>2 Star</span>
+          <span class="vote-count" id="count-2">(0 votes)</span>
+          <div class="progress-bar" id="progress-2">
+            <div class="progress-fill" id="fill-2"></div>
+            <span id="percentage-2">0%</span>
+          </div>
+        </div>
+        <div class="rating-item" id="rating-3">
+          <span>3 Star</span>
+          <span class="vote-count" id="count-3">(0 votes)</span>
+          <div class="progress-bar" id="progress-3">
+            <div class="progress-fill" id="fill-3"></div>
+            <span id="percentage-3">0%</span>
+          </div>
+        </div>
+        <div class="rating-item" id="rating-4">
+          <span>4 Star</span>
+          <span class="vote-count" id="count-4">(0 votes)</span>
+          <div class="progress-bar" id="progress-4">
+            <div class="progress-fill" id="fill-4"></div>
+            <span id="percentage-4">0%</span>
+          </div>
+        </div>
+        <div class="rating-item" id="rating-5">
+          <span>5 Star</span>
+          <span class="vote-count" id="count-5">(0 votes)</span>
+          <div class="progress-bar" id="progress-5">
+            <div class="progress-fill" id="fill-5"></div>
+            <span id="percentage-5">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
