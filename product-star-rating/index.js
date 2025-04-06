@@ -20,7 +20,7 @@ function updatingResults() {
 function highlightOnlyClickedStar(rating) {
   const stars = document.querySelectorAll("#stars button");
   stars.forEach((star, index) => {
-    if (index === rating - 1) {
+    if (index < rating) {
       star.classList.add("selected");
       star.textContent = "★";
     } else {
