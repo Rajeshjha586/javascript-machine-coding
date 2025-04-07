@@ -1,0 +1,93 @@
+:root {
+  --btn-radius: 6px;
+  --btn-font-size: 1rem;
+  --btn-padding: 10px 20px;
+  --btn-font-weight: 500;
+}
+
+.container {
+  width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #ececec;
+  border-radius: 4px;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background-color: rgb(17, 221, 126);
+  border-radius: 4px;
+}
+
+.progress-controller {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 16px;
+}
+
+.btn {
+  font-size: var(--btn-font-size);
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+  border: none;
+  cursor: pointer;
+  font-weight: var(--btn-font-weight);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  gap: 32px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: #0c74df;
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #0c74df;
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  background-color: #e7e9ea;
+  color: #fff;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #e7e9ea;
+  transform: scale(1.02);
+}
+
+.btn-ternary {
+  background-color: #df2d24;
+  color: #fff;
+}
+
+.btn-ternary:hover:not(:disabled) {
+  background-color: #df2d24;
+  transform: scale(1.02);
+}
+
+.btn.small {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
